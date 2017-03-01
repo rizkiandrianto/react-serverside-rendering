@@ -6,12 +6,7 @@ var ReactRouter = require('react-router');
 router.get('*', function(req, res) {
   var props = {title: 'React Component Bla Bla Bla'};
   ReactRouter.match({
-    routes: (
-      <ReactRouter.Router history={ReactRouter.browserHistory}>
-        <ReactRouter.Route path='/' component={require('../Components.jsx')}>
-        </ReactRouter.Route>
-      </ReactRouter.Router>
-    ),
+    routes: require('./routes.jsx'),
     location: req.url
   }, function(err, redirectLocation, renderProps) {
     if (renderProps) {
